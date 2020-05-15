@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="root" class="container">
+        <button class="button is-primary" @click="showModal = true">Mostrar Modal</button>
+        <modal v-show="showModal" @click-close-modal="showModal = false">
+            <h1 slot="title">Titulo do definido pelo slot</h1>
+            <template slot="body">Corpo definido pelo slot</template>
+            <template >padrao do slot sem name</template>
+        </modal>
+    </div>
+    
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

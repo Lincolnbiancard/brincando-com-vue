@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-once-v-html-v-text</title>
+</head>
+<body>
+    <div id="app">
+        {{ message }}
+        <div v-once>{{ message }}</div>
+        <div v-html="html"></div>
+        <div v-text="textHtml"></div>
+
+        <div :id="dynamicId">Id dinâmico</div>
+        <button :disabled="expressionBoolean">Botão desabilitado</button>
+    </div>
+    <script src="http://unpkg.com/vue"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Olaaaaaa',
+                html: '<b>Texto em negrito </b> => v-html vulnerável a ataques de XSS',
+                textHtml: '<b>Texto em negrito </b> => v-text NÃO é vulnerável a ataques de XSS',
+                dynamicId: 'idDynamicccccc',
+                expressionBoolean: true            
+            }
+        });
+    </script>
+</body>
+</html>

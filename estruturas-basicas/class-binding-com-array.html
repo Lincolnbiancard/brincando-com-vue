@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>teste de class binding</title>
+
+    <style type="text/css">
+        .color-red {
+            color: red;
+        }
+
+        .color-blue {
+            color: blue;
+        }
+
+        .is-loading {
+            background: red;
+        }
+
+        .back-green {
+            background: green;
+        }
+    </style>
+</head>
+<body>
+
+<div id="root">
+    <button title="Título do botão">Passe o mouse sobre o botão</button>
+    <button title="titulo">Passe o mouse sobre o botão</button>
+    <button v-bind:title="titulo">Passe o mouse sobre o botão</button>
+    <button :title="titulo">Passe o mouse sobre o botão</button>
+
+    <h1 :class="className">Olá class binding</h1>
+
+    <h1 :class="{'is-loading': isLoading, 'color-blue': isBlue}" @click="toggleClass">Olá class binding {'is-loading': true}</h1>
+
+    <h1 :class="classObject">Olá class binding classObject</h1>
+
+    <h1 :class="[className, classBakgroungGreen]">Olá class binding com array</h1>
+
+    <h1 :style="{color: azul, fontSize: 20 + 'px'}">Olá style binding</h1>
+
+    <h1 :style="styleObject">Olá style styleObject</h1>
+
+    <!-- a sintaxe com array também vale, pode testar :D -->
+
+</div>
+
+<script src="http://unpkg.com/vue"></script>
+
+<script>
+  var app = new Vue({
+    el: '#root',
+    data: {
+      titulo: "Agora o título modificado pelo javascript vue",
+
+      className: 'color-blue',
+      classBakgroungGreen: 'back-green',
+      isLoading: true,
+      isBlue: true,
+
+      azul: 'blue',
+
+      styleObject: {
+        color: 'green',
+        fontSize: '13px'
+      }
+    },
+
+    computed: {
+      classObject: function() {
+        return {
+          'is-loading': true,
+          'color-blue': this.isBlue
+        }
+      }
+    },
+
+    methods: {
+      toggleClass() {
+        this.isLoading = !this.isLoading;
+        this.isBlue = !this.isBlue;
+      }
+    }
+  });
+
+</script>
+
+</body>
+</html>

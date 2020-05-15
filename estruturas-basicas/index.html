@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Binding</title>
+    <style type="text/css">
+        .text-red{
+            color: red;
+        }
+
+        .text-blue{
+            color: blue;
+        }
+
+        .is-Loading{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="root">
+        <button title="título-comum">Passe o mouse sobre o botão</button>
+        <button :title="titulo">Passe o mouse sobre o botão</button>
+        <button title="título-comum">Passe o mouse sobre o botão</button>
+
+        <h2 :class="classColor">Teste cor</h2>
+        <h2 :class="{'is-Loading': isLoading}" @click="changeColor">Teste background</h2>
+        <h2 :class="classObject" @click="changeColor">Teste background</h2>
+        <button @click="changeColor">Trocar Background</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<script>
+    var app = new Vue({
+        el: '#root',
+        data: {
+            titulo: 'texto modificado pelo js vue',
+            classColor: 'text-blue',
+            isLoading: false,
+            isBlue: true
+        },
+        computed: {
+            classObject: function(){
+                return {
+                    'is-Loading': true,
+                    'text-blue': this.isBlue
+                }
+            }
+        },
+        methods: {
+            changeColor: function(){
+                this.isLoading = !this.isLoading;
+            }
+        }
+    });
+</script>
+
+</body>
+</html>

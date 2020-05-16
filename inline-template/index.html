@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="root">
+        <progresso inline-template>
+            <div>
+                <p>
+                    Carregado: {{ percentagem }}
+                </p>
+                <button class="button is-primary" @click="Add10">Add 10</button> 
+            </div> 
+        </progresso>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

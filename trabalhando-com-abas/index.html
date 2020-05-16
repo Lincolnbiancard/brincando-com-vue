@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="root" class="container">
+        <tabs>
+
+            <tab name="sobre">
+                <h1>Conteúdo de sobre nós</h1>
+            </tab>
+
+            <tab name="imprensa" :selected="true">
+                <h1>Conteúdo de Nossa cultura</h1>
+            </tab>
+
+            <tab name="nossa-visao">
+                <h1>Conteúdo de Nossa visão</h1>
+            </tab>
+
+            <tab name="contato">
+                <h1>Conteúdo de Contato</h1>
+            </tab>
+
+        </tabs>
+    </div>
+    
+<!-- development version, includes helpful console warnings -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
